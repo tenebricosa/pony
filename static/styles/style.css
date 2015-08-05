@@ -1,0 +1,65 @@
+html {
+    height: 100%;
+}
+
+body {
+	font-family: 'Open Sans', Verdana, Tahoma, sans-serif;
+	background-image: url('../images/background.jpg');
+    text-align: center;
+    height: 100%;
+}
+
+.pony__overlay{
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 0;
+}
+
+.pony__overlay--hidden,
+.pony__container--hidden {
+    display: none;
+}
+
+.container__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container__item {
+    text-align: center;
+    width: 100%;
+}
+
+.pony__container {
+    z-index: 1;
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fffbe3;
+    box-shadow: 0 0 5px #777;
+}
+
+.pony__link {
+    margin-top: 5em;
+	background-color: rgba(0,0,0,0);
+	border: 2px solid #a7321c;
+	color: #a7321c;
+	font-size: 1.6em;
+	font-weight: 600;
+	padding: 0.4em 1.3em;
+	display: inline-block;
+	user-select: none;
+	transition: background-color 0.3s ease,
+				color 0.3s ease,
+				border 0.3s ease;
+    text-decoration: none;
+}
+
+.pony__link:hover {
+	background-color: rgba(0,0,0,0.1);
+	cursor: pointer;
+	box-shadow: 0 0 5px #818181;
+}
