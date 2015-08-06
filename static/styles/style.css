@@ -9,16 +9,11 @@ body {
     height: 100%;
 }
 
-.pony__overlay{
+.pony__overlay {
     position: fixed;
     top: 0; bottom: 0; left: 0; right: 0;
     background-color: rgba(0,0,0,0.2);
     z-index: 0;
-}
-
-.pony__overlay--hidden,
-.pony__container--hidden {
-    display: none;
 }
 
 .container__row {
@@ -40,6 +35,9 @@ body {
     transform: translate(-50%, -50%);
     background-color: #fffbe3;
     box-shadow: 0 0 5px #777;
+    max-height: 90%;
+    min-height: 350px;
+    overflow: auto;
 }
 
 .pony__link {
@@ -62,4 +60,33 @@ body {
 	background-color: rgba(0,0,0,0.1);
 	cursor: pointer;
 	box-shadow: 0 0 5px #818181;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.dropdown-menu > li > label:hover {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+.dropdown-menu > li > label {
+    width: 100%;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.dropdown-menu > li > input:checked + label {
+    background-color: #a7321c;
+    color: #fff;
+}
+
+.btn {
+    margin: 20px 10px;
 }

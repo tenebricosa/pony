@@ -6,30 +6,64 @@
 
         <title>Тестовое задание Сахаровой Анастасии</title>
 
-        <link rel="stylesheet" type="text/css" href="static/styles/normalize.css" />
+        <link rel="stylesheet" href="static/styles/bootstrap.css">
         <link rel="stylesheet" href="static/styles/style.css">
 	    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="scripts/handlebars.js"></script>
-        <script src="scripts/script.js"></script>
     </head>
     <body>
         <a class="pony__link" href="#">find a pony</a>
-        <div class="pony__overlay pony__overlay--hidden"></div>
-        <div class="pony__container pony__container--hidden">
-            <form class="pony__form">
-                
+        <div class="pony__overlay" style="display: none"></div>
+        <div class="pony__container" style="display: none">
+            <form id="pony-form">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="color" data-toggle="dropdown">
+                        Цвет
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="color">
+                        <li><input type="radio" id="violet" name="color" value="Фиолетовый"><label for="violet">Фиолетовый</label></li>
+                        <li><input type="radio" id="orange" name="color" value="Оранжевый"><label for="orange">Оранжевый</label></li>
+                        <li><input type="radio" id="blue" name="color" value="Голубой"><label for="blue">Голубой</label></li>
+                        <li><input type="radio" id="white" name="color" value="Белый"><label for="white">Белый</label></li>
+                        <li><input type="radio" id="yellow" name="color" value="Желтый"><label for="yellow">Желтый</label></li>
+                        <li><input type="radio" id="pink" name="color" value="Розовый"><label for="pink">Розовый</label></li>
+                        <li><input type="radio" id="purple" name="color" value="Сиреневый"><label for="purple">Сиреневый</label></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="kind" data-toggle="dropdown">
+                        Вид
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="kind">
+                        <li><input type="radio" id="earth-pony" name="kind" value="Земная пони"><label for="earth-pony">Земная пони</label></li>
+                        <li><input type="radio" id="unicorn" name="kind" value="Единорог"><label for="unicorn">Единорог</label></li>
+                        <li><input type="radio" id="pegasus" name="kind" value="Пегас"><label for="pegasus">Пегас</label></li>
+                        <li><input type="radio" id="alicorn" name="kind" value="Аликорн"><label for="alicorn">Аликорн</label></li>
+                    </ul>
+                </div>
+
+                <input type="checkbox" id="is_new" name="is_new"><label for="is_new">Новинка</label>
+
+                <input class="btn btn-default" type='submit' id='submit' value='Найти'>
             </form>
-            <script id="pony-template" type="text/x-handlebars-template">
-                    <div class="container__row">
-                        <div class="container__item">{{name}}</div>
-                        <div class="container__item">{{color}}</div>
-                        <div class="container__item">{{kind}}</div>
-                        <div class="container__item">{{price}}</div>
-                        <div class="container__item">{{is_new}}</div>
-                    </div>
-            </script>
+
+            <form class="pony-list">
+                <script id="pony-template" type="text/x-handlebars-template">
+                        <div class="container__row" style="display: none;">
+                            <div class="container__item">{{name}}</div>
+                            <div class="container__item">{{color}}</div>
+                            <div class="container__item">{{kind}}</div>
+                            <div class="container__item">{{price}}</div>
+                            <div class="container__item">{{is_new}}</div>
+                        </div>
+                </script>
+            </form>
         </div>
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/dropdown.js"></script>
+    <script src="scripts/handlebars.js"></script>
+    <script src="scripts/script.js"></script>
 </html>
