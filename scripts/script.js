@@ -16,7 +16,7 @@ $(function() {
                 'color': color[Math.round(Math.random() * (color.length - 1))],
                 'kind': kind[Math.round(Math.random() * (kind.length - 1))],
                 'price': (Math.random() * (max_pice - min_price) + min_price).toFixed(2),
-                'is_new': (Math.round(Math.random()) == 1 ? 'on' : 'off'),
+                'is_new': (Math.round(Math.random()) == 1 ? 'Да' : 'Нет'),
                 'dom': 'ponies-' + i
             };
             var node = $(template(ponies[i])).appendTo('.pony__container');
@@ -50,15 +50,37 @@ $(function() {
         $('#pony-form').on('submit', function(e) {
             e.preventDefault();
             var data = $(this).serializeArray();
-
+            var row = 0;
             for (var i = 0; i < ponies.length; i++) {
                 var show = true;
                 for (var j = 0; j < data.length; j++) {
-                    show = show && ponies[i][data[j].name] == data[j].value;
+                    var value = data[j].value;
+                    switch (data[j].name) {
+                        case 'is_new':
+                            show = show && (ponies[i]['is_new'] == (value == 'on' ? 'Да' : 'Нет'))
+                            break;
+                        case 'min':
+                            if (value)
+                                show = show && ponies[i].price > parseFloat(value)
+                            break;
+                        case 'max':
+                            if (value)
+                                show = show && ponies[i].price < parseFloat(value)  
+                            break;
+                        default:
+                            if(value)
+                                show = show && ponies[i][data[j].name] == value
+                            break;
+                    }
                 }
-                ponies[i].node.toggle(show)
+                if (show)
+                    row++;
 
-            console.log(ponies[i].is_new);
+                if (row > 20)
+                    show = false;
+
+                ponies[i].node.toggle(show);
+
             }
         })
     };

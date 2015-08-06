@@ -21,6 +21,18 @@ body {
     justify-content: space-between;
 }
 
+.container__row--header {
+    display: flex;
+    justify-content: space-between;
+    color: #a7321c;
+    font-size: 18px;
+}
+
+.container__separator {
+    border-bottom: 1px solid #a7321c;
+    margin: 10px 50px;
+}
+
 .container__item {
     text-align: center;
     width: 100%;
@@ -38,6 +50,7 @@ body {
     max-height: 90%;
     min-height: 350px;
     overflow: auto;
+    padding-bottom: 25px;
 }
 
 .pony__link {
@@ -56,10 +69,13 @@ body {
     text-decoration: none;
 }
 
-.pony__link:hover {
+.pony__link:hover,
+.pony__link:focus {
+    color: #a7321c;
 	background-color: rgba(0,0,0,0.1);
 	cursor: pointer;
 	box-shadow: 0 0 5px #818181;
+    text-decoration: none;
 }
 
 .dropdown {
@@ -89,4 +105,18 @@ input[type="radio"] {
 
 .btn {
     margin: 20px 10px;
+}
+
+.input-price {
+    margin: 20px 10px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    background-color: #fff;
+    border-color: #ccc;
 }

@@ -21,6 +21,7 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="color">
+                        <li><input type="radio" id="no_color" name="color" checked="checked" value=""><label for="no_color">Не выбрано</label></li>
                         <li><input type="radio" id="violet" name="color" value="Фиолетовый"><label for="violet">Фиолетовый</label></li>
                         <li><input type="radio" id="orange" name="color" value="Оранжевый"><label for="orange">Оранжевый</label></li>
                         <li><input type="radio" id="blue" name="color" value="Голубой"><label for="blue">Голубой</label></li>
@@ -37,6 +38,7 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="kind">
+                        <li><input type="radio" id="no_kind" name="kind" checked="checked" value=""><label for="no_kind">Не выбрано</label></li>
                         <li><input type="radio" id="earth-pony" name="kind" value="Земная пони"><label for="earth-pony">Земная пони</label></li>
                         <li><input type="radio" id="unicorn" name="kind" value="Единорог"><label for="unicorn">Единорог</label></li>
                         <li><input type="radio" id="pegasus" name="kind" value="Пегас"><label for="pegasus">Пегас</label></li>
@@ -44,12 +46,25 @@
                     </ul>
                 </div>
 
+                Цена от
+                <input class="input-price" type="number" step="0.01" name="min" min='0'>
+                до
+                <input class="input-price" type="number" step="0.01" name="max">
+
                 <input type="checkbox" id="is_new" name="is_new"><label for="is_new">Новинка</label>
 
                 <input class="btn btn-default" type='submit' id='submit' value='Найти'>
             </form>
 
             <form class="pony-list">
+                <div class="container__row container__row--header">
+                    <div class="container__item">Имя</div>
+                    <div class="container__item">Цвет</div>
+                    <div class="container__item">Вид</div>
+                    <div class="container__item">Цена (в рублях)</div>
+                    <div class="container__item">Новинка</div>
+                </div>
+                <div class="container__separator"></div>
                 <script id="pony-template" type="text/x-handlebars-template">
                         <div class="container__row" style="display: none;">
                             <div class="container__item">{{name}}</div>
